@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FR
+  - FL
+  - RR
+  - RL
+  - wcFR
+  - wcFL
+  - wcRR
+  - wcRL
+  - chassis
   layers:
   - Default
   - TransparentFX
