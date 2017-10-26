@@ -14,13 +14,6 @@ TagManager:
   - wcRL
   - chassis
   - center
-  - FRT
-  - DriverSeat
-  - Rear Axel
-  - RRT
-  - RLT
-  - FLT
-  - Front Axel
   layers:
   - Default
   - TransparentFX
