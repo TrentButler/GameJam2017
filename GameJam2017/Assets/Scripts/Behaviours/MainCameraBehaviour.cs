@@ -29,15 +29,15 @@ public class MainCameraBehaviour : MonoBehaviour {
 
         target = car;
 
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            CamZ += 1.0f;
-        }
+        //if (Input.GetKey(KeyCode.UpArrow))
+        //{
+        //    CamZ += 1.0f;
+        //}
 
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            CamZ -= 1.0f;
-        }
+        //if (Input.GetKey(KeyCode.DownArrow))
+        //{
+        //    CamZ -= 1.0f;
+        //}
 
         //var angle = Input.GetAxis("Steer");
         var angle = 1.0f;
