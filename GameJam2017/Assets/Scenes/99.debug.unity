@@ -648,41 +648,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114230744390748314, guid: 719f3c4e145417c4fbf709d06294e8bc,
-        type: 2}
-      propertyPath: m_FullTorqueOverAllWheels
-      value: 6500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114230744390748314, guid: 719f3c4e145417c4fbf709d06294e8bc,
-        type: 2}
-      propertyPath: m_SlipLimit
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 114230744390748314, guid: 719f3c4e145417c4fbf709d06294e8bc,
-        type: 2}
-      propertyPath: m_Downforce
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 114230744390748314, guid: 719f3c4e145417c4fbf709d06294e8bc,
-        type: 2}
-      propertyPath: m_CarDriveType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 54816362109846214, guid: 719f3c4e145417c4fbf709d06294e8bc,
-        type: 2}
-      propertyPath: m_Mass
-      value: 650
-      objectReference: {fileID: 0}
-    - target: {fileID: 114230744390748314, guid: 719f3c4e145417c4fbf709d06294e8bc,
-        type: 2}
-      propertyPath: m_Topspeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114230744390748314, guid: 719f3c4e145417c4fbf709d06294e8bc,
-        type: 2}
-      propertyPath: m_CentreOfMassOffset.y
-      value: -0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 719f3c4e145417c4fbf709d06294e8bc, type: 2}
   m_IsPrefabParent: 0
