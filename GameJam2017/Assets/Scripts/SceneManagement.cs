@@ -15,6 +15,10 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene("1.garage", LoadSceneMode.Single);
     }
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene("2.track", LoadSceneMode.Single);
+    }
     // Use this for initialization
 
  
