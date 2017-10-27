@@ -8,6 +8,7 @@ public class GameManagerBehaviour : MonoBehaviour {
     public float RoundTimer = 30.0f;
     bool WinCondition = false;
     bool LoseCondition = false;
+    private ScoreManagerBehaviour score;
     
     public List<GameObject> Pins = new List<GameObject>();
 
@@ -37,9 +38,20 @@ public class GameManagerBehaviour : MonoBehaviour {
         return false;
     }
 
+    private void RenameEnemies()
+    {
+        var all = GameObject.FindGameObjectsWithTag("originalModel");
+        for(int i = 0; i < all.Length; i++)
+        {
+            all[i].name = "originalModel" + i;
+            all[i].GetComponentInParent<EnemyBehaviour>().id = i;
+        }
+    }
+
 	// Use this for initialization
 	void Start ()
     {
+        score = GetComponentInParent<ScoreManagerBehaviour>();
         //GATHER THE ACTIVE ENEMIES IN THE SCENE
         var getEnemies = GameObject.FindGameObjectsWithTag("enemy");
         if(getEnemies != null)
@@ -49,12 +61,17 @@ public class GameManagerBehaviour : MonoBehaviour {
                 Pins.Add(getEnemies[i]);
             }
         }
+        RenameEnemies();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if(WinCondition)
+        RenameEnemies();
+
+        score.Score = Pins.Count;
+
+        if (WinCondition)
         {
             //GOTO THE WIN SCENE
             SceneManager.LoadScene("97.win");
