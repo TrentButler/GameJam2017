@@ -9,12 +9,12 @@ public Vector3 translation = Vector3.zero;
 public float RotateSpeed = 1.0f;
 Transform CameraTransform;
 
-Transform model;
+public Transform model;
 
 	// Use this for initialization
 	void Start ()
     {
-        model = GameObject.FindGameObjectWithTag("model").transform;
+       //model = GameObject.FindGameObjectWithTag("model").transform;
         CameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
 	}
 	

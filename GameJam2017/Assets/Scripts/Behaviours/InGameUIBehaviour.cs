@@ -30,5 +30,6 @@ public class InGameUIBehaviour : MonoBehaviour
         string sScore = "Score:" + Score;
 
         Info.text = sMPH + "/n" + sRPM + "/n" + sScore + "/n";
+       
     }
 }
