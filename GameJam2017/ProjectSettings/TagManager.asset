@@ -4,16 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FR
-  - FL
-  - RR
-  - RL
   - wcFR
   - wcFL
   - wcRR
   - wcRL
   - chassis
-  - center
+  - rightgun
+  - leftgun
+  - FR
+  - FL
+  - RL
+  - RR
+  - enemy
   layers:
   - Default
   - TransparentFX
