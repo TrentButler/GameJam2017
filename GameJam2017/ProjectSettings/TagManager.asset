@@ -19,6 +19,8 @@ TagManager:
   - carCollider
   - manager
   - Info
+  - zombieModel
+  - originalModel
   layers:
   - Default
   - TransparentFX
