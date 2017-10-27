@@ -10,6 +10,9 @@ public class EnemyBehaviour : MonoBehaviour
     private NavMeshAgent Agent;
     private Transform target;
 
+
+    public int HitPoints = 10;
+
     [HideInInspector]
     public bool destroy = false;
     
@@ -21,6 +24,11 @@ public class EnemyBehaviour : MonoBehaviour
 	
     private void FixedUpdate()
     {
+        if(HitPoints <= 0)
+        {
+            destroy = true;
+        }
+
         if(destroy == true)
         {
             //Destroy(gameObject, DeathTimer);

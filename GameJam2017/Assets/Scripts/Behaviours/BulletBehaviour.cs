@@ -8,7 +8,8 @@ public class BulletBehaviour : MonoBehaviour
     {
         if(other.tag == "enemy")
         {
-            other.GetComponent<EnemyBehaviour>().destroy = true;
+            other.GetComponent<EnemyBehaviour>().HitPoints -= 1;
+            //other.GetComponent<EnemyBehaviour>().destroy = true;
             Destroy(gameObject);
         }
     }
