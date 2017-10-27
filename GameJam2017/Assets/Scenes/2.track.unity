@@ -46673,6 +46673,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1196715706}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1198683379 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1768089110411492, guid: c37ac9a4f397c294383ca46bdb760842,
+    type: 2}
+  m_PrefabInternal: {fileID: 1541081898}
+--- !u!114 &1198683380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1198683379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc3195903da24545938cc52971d9f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Info: {fileID: 0}
 --- !u!1 &1202353712
 GameObject:
   m_ObjectHideFlags: 0
@@ -57141,6 +57158,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137565858657700, guid: c37ac9a4f397c294383ca46bdb760842, type: 2}
+      propertyPath: m_TagString
+      value: Info
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c37ac9a4f397c294383ca46bdb760842, type: 2}
