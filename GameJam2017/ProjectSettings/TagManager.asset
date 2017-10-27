@@ -17,6 +17,7 @@ TagManager:
   - RR
   - enemy
   - carCollider
+  - manager
   layers:
   - Default
   - TransparentFX
