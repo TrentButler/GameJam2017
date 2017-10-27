@@ -16,13 +16,19 @@ public class VehicleShootBehaviour : MonoBehaviour
     private Transform LeftGun;
     public GameObject BulletPrefab;
 
+    private AudioSource rightSource;
+    private AudioSource leftSource;
+
     private bool hasShot = false;
     private bool canShoot = true;
     private float shotDelta = 0.0f;
 
     private bool Shoot()
     {
-        if(hasShot == false)
+        rightSource.Play();
+        leftSource.Play();
+
+        if (hasShot == false)
         {
             var rightBullet = (GameObject)Instantiate(BulletPrefab, RightGun.position, RightGun.transform.rotation);
             var leftBullet = (GameObject)Instantiate(BulletPrefab, LeftGun.position, LeftGun.transform.rotation);
@@ -40,6 +46,9 @@ public class VehicleShootBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        rightSource = GameObject.FindGameObjectWithTag("rightgun").GetComponent<AudioSource>();
+        leftSource = GameObject.FindGameObjectWithTag("leftgun").GetComponent<AudioSource>();
+
         RightGun = GameObject.FindGameObjectWithTag("rightgun").GetComponent<Transform>();
         LeftGun = GameObject.FindGameObjectWithTag("leftgun").GetComponent<Transform>();
     }
