@@ -20,6 +20,20 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene("2.track", LoadSceneMode.Single);
 
     }
+    public void LoadMap1()
+    {
+        SceneManager.LoadScene("4.Plane", LoadSceneMode.Single);
+    }
+
+    public void CityMap()
+    {
+        SceneManager.LoadScene("2.track", LoadSceneMode.Single);
+    }
+    public void Lookat()
+    {
+       
+
+    }
     //public void Options()
     //{
         
