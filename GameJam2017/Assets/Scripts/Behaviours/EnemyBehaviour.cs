@@ -43,4 +43,12 @@ public class EnemyBehaviour : MonoBehaviour
             Agent.SetDestination(target.position);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "carCollider")
+        {
+            Destroy(gameObject, 2.0f);
+        }
+    }
 }

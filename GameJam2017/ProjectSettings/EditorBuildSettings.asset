@@ -14,3 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2.track.unity
     guid: 65bb3442f979d6a4aa4ce642ae83c153
+  - enabled: 1
+    path: Assets/Scenes/97.win.unity
+    guid: efe3867c24649464aba176ce7d20308a
+  - enabled: 1
+    path: Assets/Scenes/98.lose.unity
+    guid: 49f280b7bb9ba38499ddf7765588870b
