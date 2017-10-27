@@ -18,6 +18,15 @@ public class SceneManagement : MonoBehaviour
     public void LoadLevel()
     {
         SceneManager.LoadScene("2.track", LoadSceneMode.Single);
+
+    }
+    //public void Options()
+    //{
+        
+    //}
+    public void ExitGame()
+    {
+        Application.Quit();
     }
     // Use this for initialization
 
