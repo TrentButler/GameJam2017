@@ -5,25 +5,56 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    public int id;
     public bool Follow = false;
     public float DeathTimer = 1.0f;
     private NavMeshAgent Agent;
     private Transform target;
 
+    private GameObject originalModel;
+    public GameObject ragdollModel;
 
-    public int HitPoints = 10;
+    [HideInInspector]
+    public Animator EnemyAnimator;
+
+    public float Radius = 10.0f;
+    public int HitPoints = 1;
 
     [HideInInspector]
     public bool destroy = false;
     
+    //MAKE ZOMBIE RAGDOLL
+    private void Death()
+    {
+        //RAGDOLL UP
+        //SWITCH TO THE RAGDOLL MODEL
+        Destroy(originalModel);
+
+        var ragdoll = (GameObject)Instantiate(ragdollModel, transform.position, transform.rotation);
+        
+        //ragdoll.GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity;
+        
+        Destroy(ragdoll, DeathTimer);
+    }
+
+    private void UpdateName()
+    {
+        originalModel = GameObject.Find("originalModel" + id);
+    }
+
     void Start ()
     {
+        //originalModel = GameObject.FindGameObjectWithTag("originalModel");
+        //originalModel = GetComponentInChildren<GameObject>();
+        EnemyAnimator = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("chassis").GetComponent<Transform>();	
 	}
 	
     private void FixedUpdate()
     {
+        UpdateName();
+
         if(HitPoints <= 0)
         {
             destroy = true;
@@ -32,15 +63,29 @@ public class EnemyBehaviour : MonoBehaviour
         if(destroy == true)
         {
             //Destroy(gameObject, DeathTimer);
+            //RAGDOLL FOR 'DeathTimer' seconds
+            EnemyAnimator.SetBool("Dead", true);
+            Death();
             Destroy(gameObject);
         }
 
-        Agent.isStopped = true;
-
-        if(Follow == true)
+        if(Agent != null)
         {
-            Agent.isStopped = false;
-            Agent.SetDestination(target.position);
+            Agent.isStopped = true;
+            //GetComponent<Rigidbody>().isKinematic = true;
+
+            if (Follow == true)
+            {
+                EnemyAnimator.SetBool("Follow", true);
+                Agent.isStopped = false;
+                Agent.SetDestination(target.position);
+            }
+
+            if (Follow == false)
+            {
+                Agent.isStopped = true;
+                EnemyAnimator.SetBool("Follow", false);
+            }
         }
     }
 
@@ -48,7 +93,13 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(other.tag == "carCollider")
         {
-            Destroy(gameObject, 2.0f);
+            if(Follow != true)
+            {
+                destroy = true;
+                //LET THE 'Death()' METHOD HANDLE DELETION
+                //Destroy(gameObject, 2.0f);
+            }
+
         }
     }
 }

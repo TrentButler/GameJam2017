@@ -12,7 +12,7 @@ public class ScoreManagerBehaviour : MonoBehaviour {
     public float RPM;
     //[HideInInspector]
     public float MPH;
-    [HideInInspector]
+    
     public int Score;
 
     //SEND IT OUT
