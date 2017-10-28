@@ -66,5 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675b541a79cad7b488de970e069a7044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundTimer: 9999
-  Pins: []
+  Endless: 0
+  Objective: Slay all Zombies!
+  RoundTimer: 90
+  EnemyPrefab: {fileID: 0}
+  spawnLimit: 15
+  spawnRate: 4
+  SpawnList: []

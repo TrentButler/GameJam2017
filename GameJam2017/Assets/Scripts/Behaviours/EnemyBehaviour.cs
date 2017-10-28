@@ -26,6 +26,8 @@ public class EnemyBehaviour : MonoBehaviour
     //MAKE ZOMBIE RAGDOLL
     private void Death()
     {
+        //PLAY DEATH SOUND
+
         //RAGDOLL UP
         //SWITCH TO THE RAGDOLL MODEL
         Destroy(originalModel);
@@ -42,7 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
         originalModel = GameObject.Find("originalModel" + id);
     }
 
-    void Start ()
+    void Start()
     {
         //originalModel = GameObject.FindGameObjectWithTag("originalModel");
         //originalModel = GetComponentInChildren<GameObject>();
@@ -69,10 +71,9 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(Agent != null)
+        if(Agent != null && destroy == false)
         {
             Agent.isStopped = true;
-            //GetComponent<Rigidbody>().isKinematic = true;
 
             if (Follow == true)
             {

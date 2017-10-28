@@ -4,8 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
-
 {
+    private void Awake()
+    {
+        if (Time.timeScale < 1.0f)
+        {
+            Time.timeScale = 1.0f;
+        }
+    }
 
     public void MainMenuLoad()
     {

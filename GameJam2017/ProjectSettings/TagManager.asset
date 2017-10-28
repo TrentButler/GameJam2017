@@ -4,17 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - wcFR
-  - wcFL
   - wcRR
-  - wcRL
   - chassis
   - rightgun
   - leftgun
-  - FR
-  - FL
-  - RL
-  - RR
   - enemy
   - carCollider
   - manager
@@ -23,6 +16,16 @@ TagManager:
   - originalModel
   - pauseMenu
   - enemyCount
+  - objectiveText
+  - model
+  - FR
+  - FL
+  - RL
+  - wcRL
+  - wcFR
+  - RR
+  - wcFL
+  - timerText
   layers:
   - Default
   - TransparentFX

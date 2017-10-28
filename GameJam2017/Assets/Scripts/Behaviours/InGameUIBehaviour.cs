@@ -7,28 +7,44 @@ using UnityEngine.UI;
 
 public class InGameUIBehaviour : MonoBehaviour
 {
-    public Text EnemyCount;
-    ScoreManagerBehaviour manager;
-	// Use this for initialization
+    private Text EnemyCount;
+    private Text RoundTimer;
+    private Text Objective;
+    
+    GameManagerBehaviour manager;
+    
 	void Start ()
     {
-        manager = GameObject.FindGameObjectWithTag("manager").GetComponent<ScoreManagerBehaviour>();
+        manager = GameObject.FindGameObjectWithTag("manager").GetComponent<GameManagerBehaviour>();
         EnemyCount = GameObject.FindGameObjectWithTag("enemyCount").GetComponent<Text>();
+        Objective = GameObject.FindGameObjectWithTag("objectiveText").GetComponent<Text>();
+        RoundTimer = GameObject.FindGameObjectWithTag("timerText").GetComponent<Text>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        string objective = "Objective: " + manager.GetObjective();
+        string timer = "Time Left: " + manager.GetRoundTime();
+
+        Objective.text = objective;
+        RoundTimer.text = timer;
+
+        if(manager.Endless == false)
+        {
+            //DISPLAY THE TIMER
+            RoundTimer.gameObject.SetActive(true);
+        }
+
+        if (manager.Endless == true)
+        {
+            //DO NOT DISPLAY THE TIMER
+            RoundTimer.gameObject.SetActive(false);
+        }
+    }
+
     private void FixedUpdate()
     {
-        var MPH = manager.MPH;
-        var RPM = manager.RPM;
-        var Score = manager.Score;
-        string sMPH = "MPH:" + MPH;
-        string sRPM = "RPM:" + RPM;
-        string sScore = "Enemies Remaining:" + Score;
-
-        EnemyCount.text = sScore;
+        string enemiesRemaining = "Enemies Remaining: " + manager.GetEnemyCount();
+        EnemyCount.text = enemiesRemaining;
     }
 }

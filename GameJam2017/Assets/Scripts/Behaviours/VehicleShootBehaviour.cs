@@ -25,11 +25,11 @@ public class VehicleShootBehaviour : MonoBehaviour
 
     private bool Shoot()
     {
-        rightSource.Play();
-        leftSource.Play();
-
         if (hasShot == false)
         {
+            rightSource.Play();
+            leftSource.Play();
+
             var rightBullet = (GameObject)Instantiate(BulletPrefab, RightGun.position, RightGun.transform.rotation);
             var leftBullet = (GameObject)Instantiate(BulletPrefab, LeftGun.position, LeftGun.transform.rotation);
 
