@@ -21,6 +21,8 @@ TagManager:
   - Info
   - zombieModel
   - originalModel
+  - pauseMenu
+  - enemyCount
   layers:
   - Default
   - TransparentFX

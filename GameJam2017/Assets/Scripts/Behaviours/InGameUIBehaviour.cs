@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class InGameUIBehaviour : MonoBehaviour
 {
-    public Text Info;
+    public Text EnemyCount;
     ScoreManagerBehaviour manager;
 	// Use this for initialization
 	void Start ()
     {
         manager = GameObject.FindGameObjectWithTag("manager").GetComponent<ScoreManagerBehaviour>();
-        Info = GameObject.FindGameObjectWithTag("Info").GetComponent<Text>();
+        EnemyCount = GameObject.FindGameObjectWithTag("enemyCount").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -27,9 +27,8 @@ public class InGameUIBehaviour : MonoBehaviour
         var Score = manager.Score;
         string sMPH = "MPH:" + MPH;
         string sRPM = "RPM:" + RPM;
-        string sScore = "Score:" + Score;
+        string sScore = "Enemies Remaining:" + Score;
 
-        Info.text = sMPH + "/n" + sRPM + "/n" + sScore + "/n";
-       
+        EnemyCount.text = sScore;
     }
 }

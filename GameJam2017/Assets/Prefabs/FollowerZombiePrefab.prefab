@@ -968,7 +968,7 @@ CapsuleCollider:
   m_Radius: 0.15
   m_Height: 0.6
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!137 &137746722440192054
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

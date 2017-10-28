@@ -18,7 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
     public Animator EnemyAnimator;
 
     public float Radius = 10.0f;
-    public int HitPoints = 1;
+    public int HitPoints = 20;
 
     [HideInInspector]
     public bool destroy = false;

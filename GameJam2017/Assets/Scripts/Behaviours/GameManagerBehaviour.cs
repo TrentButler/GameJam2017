@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GameManagerBehaviour : MonoBehaviour
 {
-
     public float RoundTimer = 30.0f;
     bool WinCondition = false;
     bool LoseCondition = false;
@@ -14,19 +13,22 @@ public class GameManagerBehaviour : MonoBehaviour
 
     private GameObject _buttonpanel;
 
+    private bool isPaused = false;
 
     public List<GameObject> Pins = new List<GameObject>();
 
     private void PauseGame()
     {
         Time.timeScale = 0;
-        _buttonpanel.SetActive(true);
+        isPaused = true;
+        _buttonpanel.SetActive(true);     
     }
 
     private void ResumeGame()
     {
         Time.timeScale = 1.0f;
         _buttonpanel.SetActive(false);
+        isPaused = false;
     }
 
     private bool Win()
@@ -69,6 +71,7 @@ public class GameManagerBehaviour : MonoBehaviour
     void Start()
     {
         score = GetComponentInParent<ScoreManagerBehaviour>();
+        _buttonpanel = GameObject.FindGameObjectWithTag("pauseMenu");
         //GATHER THE ACTIVE ENEMIES IN THE SCENE
         var getEnemies = GameObject.FindGameObjectsWithTag("enemy");
         if (getEnemies != null)
@@ -79,43 +82,48 @@ public class GameManagerBehaviour : MonoBehaviour
             }
         }
         RenameEnemies();
+        _buttonpanel.SetActive(false);
+        isPaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         var pause = Input.GetAxis("Pause");
 
-        if (pause > 0.0f && Time.timeScale >= 1.0f)
+        if (isPaused == false)
         {
-            PauseGame();
+            if (pause > 0.0f)
+            {
+                PauseGame();
+            }
+
+            RenameEnemies();
+
+            score.Score = Pins.Count;
+
+            if (WinCondition)
+            {
+                //GOTO THE WIN SCENE
+                SceneManager.LoadScene("97.win");
+            }
+
+            if (LoseCondition)
+            {
+                //GOTO THE LOSE SCENE
+                SceneManager.LoadScene("98.lose");
+            }
+
+            //DECREMENT THE ROUND TIMER;
+            RoundTimer -= Time.deltaTime;
+            LoseCondition = Lose();
+            WinCondition = Win();
         }
 
-        if (Time.timeScale <= 0.0f && pause > 0.0f) //UNPAUSE THE GAME
+        var resume = Input.GetAxis("Resume");
+        if (Time.timeScale <= 0.0f && resume > 0.0f) //UNPAUSE THE GAME
         {
             ResumeGame();
         }
-
-        RenameEnemies();
-
-        score.Score = Pins.Count;
-
-        if (WinCondition)
-        {
-            //GOTO THE WIN SCENE
-            SceneManager.LoadScene("97.win");
-        }
-
-        if (LoseCondition)
-        {
-            //GOTO THE LOSE SCENE
-            SceneManager.LoadScene("98.lose");
-        }
-
-        //DECREMENT THE ROUND TIMER;
-        RoundTimer -= Time.deltaTime;
-        LoseCondition = Lose();
-        WinCondition = Win();
     }
 }
